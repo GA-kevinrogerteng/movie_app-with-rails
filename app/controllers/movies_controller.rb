@@ -35,7 +35,6 @@ class MoviesController < ApplicationController
         result = JSON.parse(response.body)
         movie = {"title" => result['Title'], "year" => result['Year'], 'imdbID' => result['imdbID'], "Type" => result['Type'] }
         @@movie_db << movie
-        binding.pry
         redirect_to action: :show_all
       end
 
