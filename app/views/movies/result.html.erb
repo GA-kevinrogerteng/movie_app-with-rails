@@ -1,0 +1,6 @@
+<h1> Choose your movie! </h1>
+
+	<% @result.each do |y|  %>
+		<%= link_to y['Title'] , show_result_path(y['imdbID'])%>  <%= y["Year"] %><br>
+	<% end %>
+		<%= link_to 'New Search', movies_path %>

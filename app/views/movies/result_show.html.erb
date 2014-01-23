@@ -1,0 +1,26 @@
+<div class="container">
+
+			<table class="center">
+			<br>
+			<%if @result['Poster'] == "N/A" %>
+				Oops! Looks like this movie doesn't have a poster... Here's a Pikachu instead!
+				<img class='none' src='http://i.imgur.com/tCDTHfY.gif'>
+			<%else%>
+				<img src='<%= @result["Poster"]%>' >
+			<%end%>
+
+			<tr><td>IMDB Link:</td><td><a href =http://imdb.com/title/<%=@result['imdbID']%>> View IMDB Page</a></td></p></tr>
+			<tr><td>Plot:</td><td><%=@result["Plot"]%></td></tr>
+			<tr><td>Released Year:</td><td><%=@result["Year"]%></td></tr>
+			<tr><td>Rated:</td><td> <%=@result["Rated"]%></td></tr>
+			<tr><td>Released Year:</td><td> <%=@result["Year"]%></td></tr>
+			<tr><td>Runtime:</td><td> <%=@result["Runtime"]%></td></tr>
+			<tr><td>Genre:</td><td> <%=@result["Genre"]%></td></tr>
+			<tr><td>Director:</td><td> <%=@result["Director"]%></td></tr>
+			<tr><td>Actors:</td><td><%=@result["Actors"]%></td></tr>
+		</table>
+
+			<%= form_for :movie, url: add_path do |f| %>
+  			   <%= f.submit "Add to Favorites" %>
+            <% end %>
+</div>

@@ -1,17 +1,23 @@
 Movies::Application.routes.draw do
-
+# resources creates the basic paths for you
+# resources :movies
+	
   root 'movies#index'
-
   get 'movies'  => 'movies#index', as: :movies
+  get 'movies/poster/:imdb' => 'movies#result_show', as: :show_result
+  post 'movies/poster/:imdb' => 'movies#add', as: :add
+  post 'movies/results' => 'movies#search', as: :results
   post 'movies' => 'movies#create'
   get 'movies/new' => 'movies#new', as: :new_movie
   get 'movies/:id/edit' => 'movies#edit', as: :edit_movie
+  get '/movies/show_all' => 'movies#show_all', as: :movie_show_all
   get 'movies/:id' => 'movies#show', as: :movie
   patch 'movies/:id' => 'movies#update'
   delete 'movies/:id' => 'movies#destroy'
 
 
 
+ 
 
 #      root GET    /                          movies#index
 #     movies GET    /movies(.:format)          movies#index
